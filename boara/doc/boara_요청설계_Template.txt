@@ -1,0 +1,8 @@
+# Boara Project 요청 설계
+
+----------------------------------------------------
+# Main page 보기 요청
+요청내용	: /boara/main.boa
+파라미터	: X
+컨트롤러	: com.githrd.boa.controller.MainForm
+      뷰	: /WEB-INF/views/main.jsp
