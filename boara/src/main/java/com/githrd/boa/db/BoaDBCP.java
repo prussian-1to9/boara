@@ -6,21 +6,22 @@ package com.githrd.boa.db;
  * 	@since 2022.05.23
  * 	@version v.1.0
  * 			작업이력
- * 				2022.05.23	-	담담자 : 최이지
- * 									클래스 제작
+ * 				2022.05.23	-	클래스 제작
+ * 									담당자 : 최이지
  */
 import java.sql.*;
 
-import javax.naming.InitialContext;
+import javax.naming.*;
 import javax.sql.*;
 public class BoaDBCP {
 	private DataSource ds;
 
 	public BoaDBCP() {
 		try {
-			InitialContext context = new InitialContext();			
+			Context initContext = new InitialContext();
+			Context envContext = (Context) initContext.lookup("java:comp/env");
+			ds = (DataSource) envContext.lookup("jdbc/TestDB");
 			
-			ds = (DataSource)context.lookup("java:/comp/env/jdbc/NPEpjtDB");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

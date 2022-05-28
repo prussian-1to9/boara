@@ -1,0 +1,98 @@
+# Boara Project 요청 설계
+
+----------------------------------------------------
+### 컬렉션 관련 요청 설계 ###
+
+# 컬렉션 리스트 폼 보기 요청
+요청내용	: /boara/collection/collecList.boa
+파라미터	:[nowPage, cid]
+컨트롤러	: com.githrd.boa.controller.c.CollecList
+      뷰	: /WEB-INF/views/collection/collecList.jsp
+----------------------------------------------------
+# 컬렉션 삭제 처리 요청
+요청내용	: /boara/collection/collecDel.boa
+파라미터	: nowPage, cno
+컨트롤러	: com.githrd.boa.controller.c.CollecDel
+      뷰	: forward : /WEB-INF/views/collection/redirect.jsp
+      			/boara/collection/collecList.boa
+----------------------------------------------------
+# 컬렉션 작성 폼 보기
+요청내용	: /boara/collection/collecWrite.boa
+파라미터	: -
+컨트롤러	: com.githrd.boa.controller.c.CollecWrite
+      뷰	: /WEB-INF/views/collection/collecWrite.jsp
+----------------------------------------------------
+# 컬렉션 작성 처리 요청
+요청내용	: /boara/collection/collecWriteProc.boa
+파라미터	: cname[, descr, thumb, genre]
+컨트롤러	: com.githrd.boa.controller.c.CollecWriteProc
+      뷰	: redirect
+      			성공시 : /boara/collection/collecList.boa
+      			실패시 : /boara/collection/collecWrite.boa
+----------------------------------------------------
+# 컬렉션 수정 폼 보기
+요청내용	: /boara/collection/collecEdit.boa
+파라미터	: cno, nowPage
+컨트롤러	: com.githrd.boa.controller.c.CollecEdit
+      뷰	: /WEB-INF/views/collection/collecEdit.jsp
+----------------------------------------------------
+# 컬렉션 수정 처리 요청
+요청내용	: /boara/collection/collecEditProc.boa
+파라미터	: cid, cno, nowPage[, cname, descr, genre, newthumb, thumb]
+컨트롤러	: com.githrd.boa.controller.c.CollecEditProc
+      뷰	: 	forward
+      			성공시 : /WEB-INF/views/collection/redirect.jsp
+      				/boara/collection/collecList.boa
+      			
+      			실패시 : redirect - /boara/collection/collecEdit.boa
+----------------------------------------------------
+### 게시글 관련 요청 설계 ###
+
+# 게시글 리스트 폼 보기 요청
+요청내용	: /boara/board/boardList.boa
+파라미터	: cno, cname[, nowPage]
+컨트롤러	: com.githrd.boa.controller.c.BoardList
+      뷰	: /WEB-INF/views/board/boardList.jsp
+----------------------------------------------------
+# 게시글 하나 폼 보기 요청
+요청내용	: /boara/board/boardDetail.boa
+파라미터	: cno, bno[, nowPage]
+컨트롤러	: com.githrd.boa.controller.c.BoardDetail
+      뷰	: /WEB-INF/views/board/boardDetail.jsp
+----------------------------------------------------
+# 게시글 삭제 처리 요청
+요청내용	: /boara/board/boardDel.boa
+파라미터	: cno, bno[, nowPage]
+컨트롤러	: com.githrd.boa.controller.c.BoardDel
+      뷰	: forward : /boara/board/redirect.boa
+      			/boara/board/boardList.boa
+----------------------------------------------------
+# 게시글 작성 폼 보기 요청
+요청내용	: /boara/board/boardWrite.boa
+파라미터	: -
+컨트롤러	: com.githrd.boa.controller.c.BoardWrite
+      뷰	: /WEB-INF/views/board/boardWrite.jsp
+----------------------------------------------------
+# 게시글 작성 처리 요청
+요청내용	: /boara/board/boardWriteProc.boa
+파라미터	: title, cno, body[, thumb, genre]
+컨트롤러	: com.githrd.boa.controller.c.CollecWriteProc
+      뷰	: 	성공시 : /boara/board/boardList.boa
+      			실패시 : /boara/board/boardWrite.boa
+----------------------------------------------------
+# 게시글 수정 폼 보기 요청
+요청내용	: /boara/board/boardEdit.boa
+파라미터	: bno, cno
+컨트롤러	: com.githrd.boa.controller.c.BoardEdit
+      뷰	: /WEB-INF/views/board/boardEdit.jsp
+----------------------------------------------------
+# 게시글 수정 처리 요청
+요청내용	: /boara/board/boardEditProc.boa
+파라미터	: cno, bno[, title, noti, price, genre, newthumb, thumb]
+컨트롤러	: com.githrd.boa.controller.c.BoardEditProc
+      뷰	: forward
+      			성공시 : /WEB-INF/views/board/redirect.jsp
+      				/boara/board/boardDetail.boa
+      				
+      			실패시 : redirect - /boara/board/boardEditProc.boa
+----------------------------------------------------

@@ -1,0 +1,32 @@
+# Boara Project 요청 설계
+
+=========================================================================
+####################### 마이페이지 요청 설계 ######################
+=========================================================================
+--------------------------------------------------------------
+#마이페이지 폼보기 요청
+요청내용	: 	/boara/member/myinfo.boa
+파라미터	:	무
+컨트롤러	: 	com.githrd.whistle.controller.member.Myinfo
+뷰			:	/WEB-INF/views/member/myinfo.jsp
+기타		:	로그인 안되어 있을 경우]
+				redirect - /boara/member/login.boa
+--------------------------------------------------------------
+--------------------------------------------------------------
+#마이페이지 로그폼 요청
+요청내용	: 	/boara/member/mylog.boa
+파라미터	:	[nowPage, division]
+컨트롤러	: 	com.githrd.whistle.controller.member.Mylog
+뷰			:	/WEB-INF/views/member/mylog.jsp
+기타		:	로그인 안되어 있을 경우]
+				/boara/member/login.boa
+--------------------------------------------------------------
+--------------------------------------------------------------
+#마이페이지 포인트이용내역폼 요청
+요청내용	: 	/boara/member/mypointhistory.boa
+파라미터	:	무
+컨트롤러	: 	com.githrd.whistle.controller.member.MyPointHistory
+뷰			:	/WEB-INF/views/boara/member/mypointhistory.jsp
+기타		:	로그인 안되어 있을 경우]
+				/boara/member/login.boa
+--------------------------------------------------------------
