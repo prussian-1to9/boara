@@ -20,13 +20,14 @@ import com.githrd.boa.vo.j.*;
  * 				2022.05.25	-	클래스제작
  * 									담당자 ] 정준영
  *
+ *				2022.05.29	-	main branch 2차 백업 : 미사용 변수 삭제	
+ *									담당자 ] 최이지
  */
 
 
 public class MemberDao {
 	private BoaDBCP db;
 	private Connection con;
-	private Statement stmt;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
@@ -363,6 +364,7 @@ public class MemberDao {
 				mVO.setGnp(rs.getInt("gnp"));
 				mVO.setJdate(rs.getDate("pdate"));
 				mVO.setDcode(rs.getInt("dcode"));
+				mVO.setUpcode(rs.getInt("upcode"));
 				mVO.setSdate();
 				list.add(mVO);
 			}

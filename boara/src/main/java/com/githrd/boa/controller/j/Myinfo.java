@@ -34,13 +34,12 @@ public class Myinfo implements BoaInter {
 		}
 		MemberDao mDao = new MemberDao();
 		MemberVO mVO = mDao.getMemberInfo(sid);
-		int mno = mDao.getMno(sid);
+		int mno = mVO.getMno();
 		mVO.setPoint(mDao.getMyPoint(mno));
-		int bcnt = mDao.getBoardCnt(mVO.getMno());
-		int rcnt = mDao.getReplyCnt(mVO.getMno());
+		int bcnt = mDao.getBoardCnt(mno);
+		int rcnt = mDao.getReplyCnt(mno);
 		mVO.setBcnt(bcnt);
 		mVO.setRcnt(rcnt);
-		
 		
 		req.setAttribute("DATA", mVO);
 		return view; 

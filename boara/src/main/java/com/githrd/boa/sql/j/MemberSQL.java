@@ -44,41 +44,34 @@ public class MemberSQL {
 				buff.append("    mpno = pno ");
 				break;
 			case SEL_MEMBER_INFO:
-				buff.append("    SELECT ");
-				buff.append("        id, MEMBER.mno mno, joindate, savename ");
-				buff.append("    FROM ");
-				buff.append("        MEMBER, IMGFILE ");
-				buff.append("    WHERE ");
-				buff.append("        id = ? and whereis = 'P' ");
+				buff.append("SELECT ");
+				buff.append("    id, m.mno mno, joindate, savename ");
+				buff.append("FROM ");
+				buff.append("    member m, imgfile i ");
+				buff.append("WHERE ");
+				buff.append("    id = ? ");
+				buff.append("    AND whereis = 'M' ");
+				buff.append("    AND m.mno = i.mno ");
 				break;
 			case SEL_BOARD_CNT:
-				buff.append("SELECT count(*) cnt ");
-				buff.append("FROM  ");
-				buff.append("    (  SELECT ");
-				buff.append("       	bno, title, wdate, clicks ");
-				buff.append("    FROM ( ");
-				buff.append("        SELECT  ");
-				buff.append("             cno ");
-				buff.append("        FROM ");
-				buff.append("             collection ");
-				buff.append("        WHERE   ");
-				buff.append("             mno = ? ) c, board b ");
-				buff.append("    WHERE ");
-				buff.append("        c.cno = b.collection ) ");
+				buff.append("SELECT ");
+				buff.append("    count(*) cnt ");
+				buff.append("FROM ");
+				buff.append("    collection c, board b, member m ");
+				buff.append("WHERE ");
+				buff.append("    b.collection = c.cno ");
+				buff.append("    AND m.mno = c.mno ");
+				buff.append("    AND b.isshow = 'Y' ");
+				buff.append("    AND m.mno = ? ");
 				break;
 			case SEL_REPLY_CNT:
 				buff.append("SELECT ");
-				buff.append("  	count(*) cnt ");
+				buff.append("    count(*) cnt ");
 				buff.append("FROM ");
-				buff.append("    (SELECT  ");
-				buff.append("       body, rdate, isshow ");
-				buff.append("    FROM ");
-				buff.append("        (SELECT  ");
-				buff.append("            body, rdate, isshow ");
-				buff.append("        FROM ");
-				buff.append("            REPLY ");
-				buff.append("        WHERE ");
-				buff.append("            mno = ? ) ) ");
+				buff.append("    reply ");
+				buff.append("WHERE ");
+				buff.append("    isshow = 'Y' ");
+				buff.append("    AND mno = ? ");
 				break;
 			case SEL_REPLY_LIST:
 				buff.append("SELECT ");
@@ -114,12 +107,12 @@ public class MemberSQL {
 				buff.append("    rno BETWEEN ? and ? ");
 				break;
 			case SEL_POINTHISTORY:
-				buff.append("SELECT  rno, dcode, det, pdate, gnp ");
-				buff.append("FROM    (SELECT ROWNUM rno, dcode, det, pdate, gnp ");
+				buff.append("SELECT  rno, dcode, det, pdate, gnp, upcode ");
+				buff.append("FROM    (SELECT ROWNUM rno, dcode, det, pdate, gnp, upcode ");
 				buff.append("        FROM    (SELECT gnp, pdate, upcode, det, p.dcode ");
 				buff.append("                FROM point p, detailcode d ");
 				buff.append("                where mno = ? and p.dcode = d.dcode ");
-				buff.append("                ORDER BY pno )) ");
+				buff.append("                ORDER BY pno DESC )) ");
 				buff.append("where rno BETWEEN ? AND ? ");
 				break;
 			case SEL_POINTHISTORY_CNT:

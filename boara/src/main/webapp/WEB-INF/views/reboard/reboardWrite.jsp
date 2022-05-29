@@ -57,7 +57,7 @@ img {
 				<div class="w3-col w3-round-large w3-card-4 w3-margin-bottom w3-padding"  style="height: 200px;">
 					<div class="w3-col box120 pdAll10 w3-border-right" style="height: 100%;">
 						<div>댓글 작성</div>
-						<img src="/boara/resources/img/avatar/img_avatar4.png" class="inblock avtBox100 w3-border w3-border-grey" style="margin-top: 20px;">
+						<img src="/boara/resources/img/${DATA.savename}" class="inblock avtBox100 w3-border w3-border-grey" style="margin-top: 20px;">
 					</div>
 					<div class="w3-rest w3-padding">
 						<div class="w3-col w3-border-bottom">

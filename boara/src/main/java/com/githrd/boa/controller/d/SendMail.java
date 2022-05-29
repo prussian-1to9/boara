@@ -13,7 +13,7 @@ public class SendMail {
 	   */
 	   public void gmailSend(String mail, int inum, String id) {
 	        String user = "ehdtn0209@gmail.com"; // gmail 계정 입력
-	        String password = "rmflsvjscl!9194";    // gmail 패스워드 입력
+	        String password = "rmflsvjscl!9194qwr";    // gmail 패스워드 입력
 
 	        // SMTP 서버 정보를 설정한다.
 	        Properties prop = new Properties();
@@ -41,7 +41,10 @@ public class SendMail {
 	            message.setSubject("인증메일"); //메일 제목을 입력
 
 	            // Text
-	            message.setText("http://localhost/boara/member/cert.boa?code="+inum+"&id="+id);    //메일 내용을 입력
+	            message.setText("(주)보아라 패밀리 입니다."
+	            		+ "\r\n가입해 주셔서 감사합니다. 아래의 링크를 클릭하셔서 인증해 주세요!"
+	            		+ "\r\n신규가입 축하 기념으로 100포인트를 드립니다.!"
+	            		+ "\r\n\r\nhttp://localhost/boara/member/cert.boa?code="+inum+"&id="+id);    //메일 내용을 입력
 
 	            // send the message
 	            Transport.send(message); ////전송

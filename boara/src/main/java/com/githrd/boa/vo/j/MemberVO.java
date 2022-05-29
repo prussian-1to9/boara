@@ -5,13 +5,20 @@ import java.text.*;
 import java.util.*;
 
 public class MemberVO {
-	private int cnt, bcnt, rcnt, bno, rno, mno, point, spage, epage, gnp, dcode, clicks;
+	private int cnt, bcnt, rcnt, bno, rno, mno, point, spage, epage, gnp, dcode, clicks, upcode;
+
 	private String id, sdate, title, det, isshow, body, avt;
 	private Date jdate;
 	private Time jtime;
 	
 	
 	
+	public int getUpcode() {
+		return upcode;
+	}
+	public void setUpcode(int upcode) {
+		this.upcode = upcode;
+	}
 	public String getAvt() {
 		return avt;
 	}
@@ -144,5 +151,13 @@ public class MemberVO {
 		this.title = title;
 	}
 	
+	@Override
+	public String toString() {
+		return "MemberVO [cnt=" + cnt + ", bcnt=" + bcnt + ", rcnt=" + rcnt + ", bno=" + bno + ", rno=" + rno + ", mno="
+				+ mno + ", point=" + point + ", spage=" + spage + ", epage=" + epage + ", gnp=" + gnp + ", dcode="
+				+ dcode + ", clicks=" + clicks + ", id=" + id + ", sdate=" + sdate + ", title=" + title + ", det=" + det
+				+ ", isshow=" + isshow + ", body=" + body + ", avt=" + avt + ", jdate=" + jdate + ", jtime=" + jtime
+				+ "]";
+	}
 	
 }

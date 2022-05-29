@@ -65,7 +65,7 @@ font-weight: lighter ;
    		</div>
    	<div class="w3-container w3-padding w3-margin w3-border-indigo w3-card-4" style="padding:128px 16px">
 			<div class="w3-col w3-display-container w3-border w3-margin" style="width: 250px; height: 250px;">
-				<img src="/boara/resources/img/${DATA.avt}" class="avtimg250 w3-display-middle">
+				<img src="/boara/resources/upload/${DATA.avt}" class="avtimg250 w3-display-middle">
 			</div>
 			<div class="w3-rest w3-text-grey">
 				<div class="w3-col "> 

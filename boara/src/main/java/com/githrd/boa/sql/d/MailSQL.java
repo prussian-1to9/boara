@@ -16,6 +16,8 @@ public class MailSQL {
 	public final int INSERT_NEW_CERT			= 1001;
 	public final int GET_LAST_CERT				= 1002;
 	public final int UP_CERT_AFTER				= 1003;
+	public final int NEW_MEM_WELCOME			= 1004;
+	public final int NEW_MEM_ISSHOW				= 1005;
 	
 	
 	public String getSQL(int code) {
@@ -54,6 +56,22 @@ public class MailSQL {
 				buff.append("    id = ? ");
 				buff.append("    AND ");
 				buff.append("    code= ? ");
+				break;
+			case NEW_MEM_WELCOME:
+				buff.append("INSERT INTO point ");
+				buff.append("VALUES( ");
+				buff.append("    (SELECT NVL(MAX(pno)+1,1000000001) FROM point), ");
+				buff.append("    (SELECT MAX(mno) FROM member), ");
+				buff.append("    100, sysdate, 110, 100 ");
+				buff.append(") ");
+				break;
+			case NEW_MEM_ISSHOW:
+				buff.append("UPDATE ");
+				buff.append("    member ");
+				buff.append("SET ");
+				buff.append("    isshow = 'Y' ");
+				buff.append("WHERE ");
+				buff.append("    id = ? ");
 				break;
 		}
 		return buff.toString();

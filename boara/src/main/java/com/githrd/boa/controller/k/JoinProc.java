@@ -42,7 +42,6 @@ public class JoinProc implements BoaInter {
 		String pw = multi.getParameter("pw");
 		String tel = multi.getParameter("tel");
 		String mail = multi.getParameter("mail");
-		
 		FileVO fVO = futil.getList().get(0); 
 		fVO.setId(id);
 		
@@ -57,11 +56,10 @@ public class JoinProc implements BoaInter {
         String snum = gc.excuteGenerate();//랜덤숫자발생함수실행
         int inum = Integer.parseInt(snum);//형변환
         
-        MailDao maDao = new MailDao();
-        maDao.insertCert(id, inum);
-        System.out.println(id+"@#"+inum);
-        SendMail sm = new SendMail();
-        sm.gmailSend(mail, inum, id);
+        MailDao maDao = new MailDao();//인증메일발송시 필요한 함수들이 모여있는 class호출
+        maDao.insertCert(id, inum);//인증메일 발송 시 6자리코드, 가입자id를 DB에 insert 
+        SendMail sm = new SendMail();//인증메일발송class호출
+        sm.gmailSend(mail, inum, id);//인증메일발송
 
 		
 		MemberDao mDao = new MemberDao();

@@ -118,13 +118,13 @@ font-weight: lighter ;
 <c:forEach var="data" items="${LIST}">
 		<div class="w3-col w3-round-large w3-card-4 w3-margin-bottom w3-margin-top w3-padding w3-center">
 <c:choose>
-	<c:when test="${data.dcode eq 100}">
+	<c:when test="${data.dcode ge 101 && data.dcode le 199}">
 			<div class="w3-col m2 w3-left"><div class="btnbox w3-dark-grey parent">적립</div></div>
 	</c:when>
-	<c:when test="${data.dcode eq 200}">
+	<c:when test="${data.dcode ge 200}">
 			<div class="w3-col m2 w3-left"><div class="btnbox w3-red parent">사용</div></div>
 	</c:when>
-	<c:when test="${data.dcode eq 101}">
+	<c:when test="${data.dcode eq 100}">
 			<div class="w3-col m2 w3-left"><div class="btnbox w3-green parent">충전</div></div>
 	</c:when>
 	<c:otherwise>

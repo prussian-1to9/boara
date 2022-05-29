@@ -60,7 +60,7 @@ img {
 			<div class="w3-col w3-center" style="width: 700px; height: 160px; padding-left: ${data.step * 70}px;">
 				<div class="w3-col w3-round-large w3-card-4 w3-margin-bottom w3-padding">
 					<div class="w3-col box120 pdAll10 w3-border-right">
-						<img src="/boara/resources/img/avatar/img_avatar4.png" class="inblock avtBox100 w3-border w3-border-grey">
+						<img src="/boara/resources/img/${DATA.savename}" class="inblock avtBox100 w3-border w3-border-grey">
 					</div>
 					<div class="w3-rest w3-padding">
 						<div class="w3-col w3-border-bottom" id="${data.mno}">

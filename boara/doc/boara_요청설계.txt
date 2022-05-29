@@ -1,0 +1,324 @@
+# Boara Project 요청 설계
+
+# Main page 보기 요청
+요청내용	: /boara/main.boa
+파라미터	: X
+컨트롤러	: com.githrd.boa.controller.MainForm
+      뷰	: /WEB-INF/views/main.jsp
+============================================================================
+######################### 회원 정보 관련 요청 설계 #########################
+============================================================================
+# login 폼보기 요청
+요청내용	: /boara/member/login.boa
+파라미터	:	
+컨트롤러	: com.githrd.boa.controller.k.LoginForm
+      뷰	: /WEB-INF/views/member/login.jsp
+----------------------------------------------------------------------------
+# login 처리 요청
+요청내용	:  /boara/member/loginProc.boa
+파라미터	: id, pw
+컨트롤러	: com.githrd.boa.controller.k.LoginProc
+      뷰	:	
+			성공 /WEB-INF/views/main.jsp
+			실패 /WEB-INF/views/member/login.jsp
+----------------------------------------------------------------------------
+# join 폼보기 요청
+요청내용	: /boara/member/join.boa
+파라미터	:	
+컨트롤러	: com.githrd.boa.controller.k.JoinForm
+      뷰	: /WEB-INF/views/member/join.jsp
+----------------------------------------------------------------------------
+# id pw 찾기 폼보기 요청
+요청내용	: /boara/member/member/idpwSearch.boa
+파라미터	:	
+컨트롤러	: com.githrd.boa.controller.k.com.githrd.boa.controller.k.IdPwSearch
+      뷰	: /WEB-INF/views/member/idpwSearch.jsp
+----------------------------------------------------------------------------
+# id찾기 처리 요청
+요청내용	: /boara/member/idSearchProc.boa
+파라미터	: name, tel
+컨트롤러	: com.githrd.boa.controller.k.IdSearchProc
+      뷰	: /WEB-INF/views/member/idpwSearch.jsp
+----------------------------------------------------------------------------   
+# pw 찾기 처리 요청
+요청내용	: /boara/member/pwSearchProc.boa
+파라미터	: id, mail
+컨트롤러	: com.githrd.boa.controller.k.PwSearchProc
+      뷰	: /WEB-INF/views/member/idpwSearch.jsp
+----------------------------------------------------------------------------  
+# 아이디 중복 체크 처리 요청 
+요청내용	: /boara/member/idCheck.boa
+파라미터	: id
+컨트롤러	: com.githrd.whistle.controller.boa.IdCheck
+      뷰	: json
+----------------------------------------------------------------------------
+# 메일 중복 처리 요청 
+요청내용	: /boara/member/mailCheck.boa
+파라미터	: mail
+컨트롤러	: com.githrd.whistle.controller.boa.MailCheck
+      뷰	: json
+----------------------------------------------------------------------------
+# 전화번호 중복 처리 요청 
+요청내용	: /boara/member/telCheck.boa
+파라미터	: tel
+컨트롤러	: com.githrd.whistle.controller.boa.TelCheck
+      뷰	: json
+----------------------------------------------------------------------------
+# join 처리 요청
+요청내용	: /boara/member/joinProc.boa
+파라미터	: name, id, pw, mail, tel, image
+컨트롤러	: com.githrd.boa.controller.k.JoinProc
+      뷰	: 성공 /WEB-INF/views/main.jsp
+		  실패 /WEB-INF/views/member/join.jsp
+---------------------------------------------------------------------------- 
+# logout 처리 요청
+요청내용	: /boara/member/logout.boa
+파라미터	: id, pw
+컨트롤러	: com.githrd.whistle.controller.k.Logout
+      뷰	:	
+				성공 /WEB-INF/views/main.jsp
+----------------------------------------------------------------------------
+# 회원정보 수정 폼보기 
+요청내용	: /boara/member/editInfo.boa
+파라미터	:	
+컨트롤러	: com.githrd.boa.controller.k.EditInfo
+      뷰	: /WEB-INF/views/member/editInfo.jsp
+----------------------------------------------------------------------------
+# 회원정보 수정 처리 요청
+요청내용	: /boara/member/editInfoProc.boa
+파라미터	: id, pw, mail, telm , mail, image
+컨트롤러	: com.githrd.boa.controller.k.EditInfoProc
+      뷰	:	
+				성공 /WEB-INF/views/main.jsp
+				실패 /WEB-INF/views/member/editInfoProc.jsp
+----------------------------------------------------------------------------    
+ # 프로필 이미지 수정 처리 요청
+요청내용	: /boara/member/editImgProc.boa
+파라미터	:	
+컨트롤러	: com.githrd.boa.controller.k.EditImgProc
+      뷰	: /WEB-INF/views/member/delMember.jsp
+---------------------------------------------------------------------------- 
+ # 회원 탈퇴 폼보기 
+요청내용	: /boara/member/delMember.boa
+파라미터	:	
+컨트롤러	: com.githrd.boa.controller.k.DelMember
+      뷰	: /WEB-INF/views/member/delMember.jsp
+----------------------------------------------------------------------------
+# 회원 탈퇴 처리 요청
+요청내용	: /boara/member/delMemberProc.boa
+파라미터	: id, pw
+컨트롤러	: com.githrd.boa.controller.k.DelMemberProc
+      뷰	:	
+				성공 /WEB-INF/views/main.jsp
+				실패 /WEB-INF/views/member/delMemberProc.jsp
+----------------------------------------------------------------------------
+# ID/PW 찾기 폼보기 요청
+요청내용	: /boara/member/idpwSearch.boa
+파라미터	:	
+컨트롤러	: com.githrd.boa.controller.k.IdPwSearch
+      뷰	: /WEB-INF/views/member/idpwSearch.jsp
+----------------------------------------------------------------------------    
+# id 찾기 요청
+요청내용	: /boara/member/idSearchProc.boa
+파라미터	:	
+컨트롤러	: com.githrd.boa.controller.k.IdSearchProc
+      뷰	: /WEB-INF/views/member/idSearchProc.jsp
+----------------------------------------------------------------------------
+# pw 찾기 요청
+요청내용	: /boara/member/pwSearchProc.boa
+파라미터	:	
+컨트롤러	: com.githrd.boa.controller.k.PwSearchProc
+      뷰	: /WEB-INF/views/member/pwSearchProc.jsp 
+============================================================================
+######################## 이메일 인증 관련 요청 설계 ########################
+============================================================================
+# 메일로 전송된 링크 클릭 시 인증요청
+요청내용   : /boara/member/cert.boa
+파라미터   : id, code
+컨트롤러   : com.githrd.boa.controller.d.MailConfirm
+      뷰   : 
+      성공] /WEB-INF/views/main.jsp
+      실패] /WEB-INF/views/member/join.jsp
+============================================================================
+######################## 마이 페이지 관련 요청 설계 ########################
+============================================================================
+#마이페이지 폼보기 요청
+요청내용	: /boara/member/myinfo.boa
+파라미터	: 무
+컨트롤러	: com.githrd.whistle.controller.member.Myinfo
+      뷰	: /WEB-INF/views/member/myinfo.jsp
+기타		: 로그인 안되어 있을 경우]
+				redirect - /boara/member/login.boa
+----------------------------------------------------------------------------
+#마이페이지 로그폼 요청
+요청내용	: /boara/member/mylog.boa
+파라미터	: [nowPage, division]
+컨트롤러	: com.githrd.whistle.controller.member.Mylog
+      뷰	: /WEB-INF/views/member/mylog.jsp
+기타		: 로그인 안되어 있을 경우]
+				/boara/member/login.boa
+----------------------------------------------------------------------------
+#마이페이지 포인트이용내역폼 요청
+요청내용	: /boara/member/mypointhistory.boa
+파라미터	: 무
+컨트롤러	: com.githrd.whistle.controller.member.MyPointHistory
+      뷰	: /WEB-INF/views/boara/member/mypointhistory.jsp
+기타		: 로그인 안되어 있을 경우]
+				/boara/member/login.boa
+----------------------------------------------------------------------------
+# 나의 구매글 리스트 폼보기 처리 요청
+요청내용	: /boara/member/mybuyboard.boa
+파라미터	: [nowPage]
+컨트롤러 	: com.githrd.boa.controller.p.MyBuyBoard
+      뷰	: /boara/member/mybuyboard.jsp
+============================================================================
+########################## 컬렉션 관련 요청 설계 ##########################
+============================================================================
+# 컬렉션 리스트 폼 보기 요청
+요청내용	: /boara/collection/collecList.boa
+파라미터	: [nowPage, cid]
+컨트롤러	: com.githrd.boa.controller.c.CollecList
+      뷰	: /WEB-INF/views/collection/collecList.jsp
+----------------------------------------------------------------------------
+# 컬렉션 삭제 처리 요청
+요청내용	: /boara/collection/collecDel.boa
+파라미터	: nowPage, cno
+컨트롤러	: com.githrd.boa.controller.c.CollecDel
+      뷰	: forward : /WEB-INF/views/collection/redirect.jsp
+      			/boara/collection/collecList.boa
+----------------------------------------------------------------------------
+# 컬렉션 작성 폼 보기
+요청내용	: /boara/collection/collecWrite.boa
+파라미터	: -
+컨트롤러	: com.githrd.boa.controller.c.CollecWrite
+      뷰	: /WEB-INF/views/collection/collecWrite.jsp
+----------------------------------------------------------------------------
+# 컬렉션 작성 처리 요청
+요청내용	: /boara/collection/collecWriteProc.boa
+파라미터	: cname[, descr, thumb, genre]
+컨트롤러	: com.githrd.boa.controller.c.CollecWriteProc
+      뷰	: redirect
+      			성공시 : /boara/collection/collecList.boa
+      			실패시 : /boara/collection/collecWrite.boa
+----------------------------------------------------------------------------
+# 컬렉션 수정 폼 보기
+요청내용	: /boara/collection/collecEdit.boa
+파라미터	: cno, nowPage
+컨트롤러	: com.githrd.boa.controller.c.CollecEdit
+      뷰	: /WEB-INF/views/collection/collecEdit.jsp
+----------------------------------------------------------------------------
+# 컬렉션 수정 처리 요청
+요청내용	: /boara/collection/collecEditProc.boa
+파라미터	: cid, cno, nowPage[, cname, descr, genre, newthumb, thumb]
+컨트롤러	: com.githrd.boa.controller.c.CollecEditProc
+      뷰	: 	forward
+      			성공시 : /WEB-INF/views/collection/redirect.jsp
+      				/boara/collection/collecList.boa
+      			
+      			실패시 : redirect - /boara/collection/collecEdit.boa
+============================================================================
+########################## 게시글 관련 요청 설계 ##########################
+============================================================================
+# 게시글 리스트 폼 보기 요청
+요청내용	: /boara/board/boardList.boa
+파라미터	: cno, cname[, nowPage]
+컨트롤러	: com.githrd.boa.controller.c.BoardList
+      뷰	: /WEB-INF/views/board/boardList.jsp
+----------------------------------------------------------------------------
+# 게시글 하나 폼 보기 요청
+요청내용	: /boara/board/boardDetail.boa
+파라미터	: cno, bno[, nowPage]
+컨트롤러	: com.githrd.boa.controller.c.BoardDetail
+      뷰	: /WEB-INF/views/board/boardDetail.jsp
+----------------------------------------------------------------------------
+# 게시글 삭제 처리 요청
+요청내용	: /boara/board/boardDel.boa
+파라미터	: cno, bno[, nowPage]
+컨트롤러	: com.githrd.boa.controller.c.BoardDel
+      뷰	: forward : /boara/board/redirect.boa
+      			/boara/board/boardList.boa
+----------------------------------------------------------------------------
+# 게시글 작성 폼 보기 요청
+요청내용	: /boara/board/boardWrite.boa
+파라미터	: -
+컨트롤러	: com.githrd.boa.controller.c.BoardWrite
+      뷰	: /WEB-INF/views/board/boardWrite.jsp
+----------------------------------------------------------------------------
+# 게시글 작성 처리 요청
+요청내용	: /boara/board/boardWriteProc.boa
+파라미터	: title, cno, body[, thumb, genre]
+컨트롤러	: com.githrd.boa.controller.c.CollecWriteProc
+      뷰	: 	성공시 : /boara/board/boardList.boa
+      			실패시 : /boara/board/boardWrite.boa
+----------------------------------------------------------------------------
+# 게시글 수정 폼 보기 요청
+요청내용	: /boara/board/boardEdit.boa
+파라미터	: bno, cno
+컨트롤러	: com.githrd.boa.controller.c.BoardEdit
+      뷰	: /WEB-INF/views/board/boardEdit.jsp
+----------------------------------------------------------------------------
+# 게시글 수정 처리 요청
+요청내용	: /boara/board/boardEditProc.boa
+파라미터	: cno, bno[, title, noti, price, genre, newthumb, thumb]
+컨트롤러	: com.githrd.boa.controller.c.BoardEditProc
+      뷰	: forward
+      			성공시 : /WEB-INF/views/board/redirect.jsp
+      				/boara/board/boardDetail.boa
+      				
+      			실패시 : redirect - /boara/board/boardEditProc.boa
+============================================================================
+######################## 댓글 게시판 관련 요청 설계 ########################
+============================================================================
+# 댓글 게시판 리스트 폼 보기 요청
+요청내용	: /boara/reboard/reboardList.boa
+파라미터	: [nowPage]
+컨트롤러	: com.githrd.boa.controller.p.ReboardList
+      뷰	: /WEB-INF/views/p/ReboardList.jsp
+----------------------------------------------------------------------------
+# 댓글 게시판 새 댓글 작성 폼 보기 요청
+요청내용	: /boara/reboard/reboardWrtie.boa
+파라미터	: nowPage
+컨트롤러	: com.githrd.boa.controller.p.ReboardWrite
+      뷰	: /WEB-INF/views/p/ReboardWrtie.jsp
+----------------------------------------------------------------------------
+# 댓글 게시판 새 댓글 작성 처리 요청
+요청내용	: /boara/reboard/reboardWrtieProc.boa
+파라미터	: nowPage, mno, body, spo
+컨트롤러	: com.githrd.boa.controller.p.ReboardWriteProc
+      뷰	: redirect ]
+      			성공 : forward ] redirect.jsp 	
+      				/boara/reboard/reboardList.boa
+      			실패 : forward ] redirect.jsp       				
+      				/boara/reboard/reboardWrite.boa
+----------------------------------------------------------------------------
+# 댓글 게시판 대댓글 작성 폼 보기 요청
+요청내용	: /boara/reboard/reboardComment.boa
+파라미터	: nowPage
+컨트롤러	: com.githrd.boa.controller.p.ReboardComment
+      뷰	: /WEB-INF/views/p/ReboardEdit.jsp
+----------------------------------------------------------------------------
+# 댓글 게시판 대댓글 작성 처리 요청
+요청내용	: /boara/reboard/reboardCommentProc.boa
+파라미터	: nowPage, mno, body, spo, uprno
+컨트롤러	: com.githrd.boa.controller.p.ReboardCommentProc
+      뷰	: redirect ]
+      			성공 : forward ] redirect.jsp 	
+      				/boara/reboard/reboardList.boa
+      			실패 : forward ] redirect.jsp       				
+      				/boara/reboard/reboardComment.boa
+----------------------------------------------------------------------------
+# 댓글 게시판 댓글 수정 폼 보기 요청
+요청내용	: /boara/reboard/reboardEdit.boa
+파라미터	: nowPage, rno
+컨트롤러	: com.githrd.boa.controller.p.ReboardEdit
+      뷰	: /WEB-INF/views/p/ReboardEdit.jsp
+----------------------------------------------------------------------------
+# 댓글 게시판 댓글 수정 처리 요청
+요청내용	: /boara/reboard/reboardEditProc.boa
+파라미터	: nowPage, rno, body, spo
+컨트롤러	: com.githrd.boa.controller.p.ReboardEditProc
+      뷰	: redirect ]
+      			성공 : forward ] redirect.jsp 	
+      				/boara/reboard/reboardList.boa
+      			실패 : forward ] redirect.jsp       				
+      				/boara/reboard/reboardEdit.boa

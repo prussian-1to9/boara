@@ -41,8 +41,8 @@ public class Mylog implements BoaInter {
 		}
 		MemberDao mDao = new MemberDao();
 		MemberVO mVO = mDao.getMemberInfo(sid);
-		int mno = mDao.getMno(sid);
-		mVO.setPoint(mDao.getMyPoint(mno));
+		int mno = mVO.getMno();
+		mVO.setPoint(mno);
 		int bcnt = mDao.getBoardCnt(mno);
 		int rcnt = mDao.getReplyCnt(mno);
 		int cnt = 0;

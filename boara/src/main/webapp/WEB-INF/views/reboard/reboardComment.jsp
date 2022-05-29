@@ -63,7 +63,7 @@ img {
 				<%-- 	<c:if test="${empty param.uprno}">
 						<div>댓글 작성</div>
 					</c:if> --%>
-						<img src="/boara/resources/img/avatar/img_avatar4.png" class="inblock avtBox100 w3-border w3-border-grey" style="margin-top: 20px;">
+						<img src="/boara/resources/img/${DATA.savename}" class="inblock avtBox100 w3-border w3-border-grey" style="margin-top: 20px;">
 					</div>
 					<div class="w3-rest w3-padding">
 						<div class="w3-col w3-border-bottom">

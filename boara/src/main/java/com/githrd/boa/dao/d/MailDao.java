@@ -18,6 +18,9 @@ import com.githrd.boa.sql.d.*;
  * 
  * 				2022.05.28	-	main branch 백업 : 미사용 import 제거 (com.githrd.vo.d)
  * 									담당자 ] 최이지
+ * 
+ * 								디버깅 중 함수 추가(newMemWelcome, newMemIsshow)
+ * 									담당자 ] 양동수
  */
 public class MailDao {
 	
@@ -34,7 +37,7 @@ public class MailDao {
 		mSQL = new MailSQL();
 	}
 
-	//cert테이블 입력
+	//신규 회원가입 인증하기위한 cert테이블 입력
 	public int insertCert(String id, int code) {
 		int cnt = 0;
 		con = db.getCon();
@@ -86,6 +89,42 @@ public class MailDao {
 		try {
 			pstmt.setString(1, id);
 			pstmt.setInt(2, code);
+			cnt = pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;
+	}
+	
+	//신규가입자에게 point table row 추가, 100point 선물, 전담처리함수
+	public int newMemWelcome() {
+		int pcnt = 0;
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.NEW_MEM_WELCOME);
+		stmt = db.getStmt(con);
+		try {
+			pcnt = stmt.executeUpdate(sql);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			db.close(stmt);
+			db.close(con);
+		}
+		return pcnt;
+	}
+	
+	//신규가입자의 member테이블의 isshow 변경하여 권한주기 전담처리함수
+	public int newMemIsshow(String dbid) {
+		int cnt = 0;
+		
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.NEW_MEM_ISSHOW);
+		pstmt = db.getPstmt(con, sql);
+		try {
+			pstmt.setString(1, dbid);
 			cnt = pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();

@@ -41,17 +41,18 @@ public class MyPointHistory implements BoaInter {
 			nowPage = Integer.parseInt(spage);
 		}
 		MemberDao mDao = new MemberDao();
-		int mno = mDao.getMno(sid);
+		MemberVO mVO = mDao.getMemberInfo(sid);
+		int mno = mVO.getMno();
 		int bcnt = mDao.getBoardCnt(mno);
 		int pcnt = mDao.getPointHistoryCnt(mno);
 		PageUtil page = new PageUtil(nowPage, pcnt);
 		ArrayList<MemberVO> list = mDao.getPointHistory(page, mno);
-		MemberVO mVO = mDao.getMemberInfo(sid);
 		mVO.setPoint(mDao.getMyPoint(mno));
-		int rcnt = mDao.getReplyCnt(mVO.getMno());
-		
+		int rcnt = mDao.getReplyCnt(mno);
+																System.out.println(mVO);
 		mVO.setBcnt(bcnt);
 		mVO.setRcnt(rcnt);
+		
 		
 		
 		req.setAttribute("DATA", mVO);
