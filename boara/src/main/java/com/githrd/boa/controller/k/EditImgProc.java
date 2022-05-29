@@ -1,5 +1,15 @@
 package com.githrd.boa.controller.k;
-
+/**
+ * 회원 프로필사진 변경 작업을 수행하는 클래스
+ * @author	김소연
+ * @since	2022.05.28
+ * @version	v.1.0
+ * 
+ * 			작업이력 ]
+ * 				2022.05.28	-	클래스제작
+ * 									담당자 ] 김소연
+ *
+ */
 import java.io.IOException;
 
 import javax.servlet.ServletException;

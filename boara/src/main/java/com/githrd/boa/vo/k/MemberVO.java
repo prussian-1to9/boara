@@ -1,5 +1,15 @@
 package com.githrd.boa.vo.k;
-
+/**
+ * 	회원 관련 변수들을 다루는 VO 클래스
+ * 	@author 김소연
+ * 	@since 2022.05.24
+ * 	@version v.1.0
+ * 
+ * 			작업이력 ]
+ * 				2022.05.24	-	클래스제작
+ * 									담당자 ] 김소연
+ *
+ */
 import java.util.*;
 import java.util.Date;
 
