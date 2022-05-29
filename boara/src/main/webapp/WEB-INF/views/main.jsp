@@ -65,7 +65,12 @@ img {
 <c:forEach var="data" items="${LIST}">
 			<div class="inblock w3-center collectionlist" id="${data.cno}" style="width: 150px; height: 160px; margin-left: 20px; padding-left: 20px;">
 	         	<div class="picbox">
-	               <img class="pic w3-card-4" src="/boara/resources/img/${data.savename}">
+	<c:if test="${not empty data.savename}">
+	               <img class="pic w3-card-4" src="/boara/resources/upload/${data.savename}">
+	</c:if>
+	<c:if test="${empty data.savename}">
+	               <img class="pic w3-card-4" src="/boara/resources/img/noimage.jpg">
+	</c:if>
 	         	</div>
                <div>${data.cname}</div>
 	        </div>

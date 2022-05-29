@@ -20,7 +20,8 @@ import com.githrd.boa.vo.j.*;
  * 				2022.05.25	-	클래스제작
  * 									담당자 ] 정준영
  *
- *				2022.05.29	-	main branch 2차 백업 : 미사용 변수 삭제	
+ *				2022.05.29	-	main branch 2차 백업 : 미사용 변수 삭제
+ *								디버깅용 함수 작성(ifHasFiles, getFiles)
  *									담당자 ] 최이지
  */
 
@@ -53,7 +54,6 @@ public class MemberDao {
 			
 			mVO.setId(rs.getString("id"));
 			mVO.setMno(rs.getInt("mno"));
-			mVO.setAvt(rs.getString("savename"));
 			mVO.setJdate(rs.getDate("joindate"));
 			mVO.setSdate();
 			
@@ -377,5 +377,57 @@ public class MemberDao {
 		}
 		
 		return list;
+	}
+	
+	public int ifHasFiles(String id) {
+		int cnt = 0;
+		
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.SEL_FILES_CNT);
+		pstmt = db.getPstmt(con, sql);
+		
+		try {
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			cnt = rs.getInt("cnt");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		return cnt;
+	}
+	
+	public String getFiles(String id){
+		String avt = "";
+		
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.SEL_ID_FILES);
+		pstmt = db.getPstmt(con, sql);
+		
+		try {
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			avt = rs.getString("savename");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		return avt;
 	}
 }

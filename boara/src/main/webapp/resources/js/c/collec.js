@@ -119,7 +119,6 @@ $(document).ready(function(){
 		}else{
 			$('#genre').val(genre);
 		}
-		
 		$('#frm').submit();
 	});
 	
@@ -149,6 +148,7 @@ $(document).ready(function(){
 		var genre = "";
 		var chkbox = $('input:checkbox[id="genr"]:checked');
 		var ck_gnr = chkbox.length;
+		if(ck_gnr == 0) genre = 'empty';
 		for(i=0; i<ck_gnr; i++){
 			if(i == (ck_gnr - 1)){
 				genre += chkbox[i].value;
@@ -177,8 +177,10 @@ $(document).ready(function(){
 		if(descr == tdescr){
 			$('#descr').prop('disabled', true);
 		}
-		if(genre == tgenre){
-			$('#descr').prop('disabled', true);
+		if(genre == tgenre) {
+			$('#genre').prop('disabled', true);
+		}else{
+			$('#genre').val(genre);
 		}
 		
 		$('#frm').submit();

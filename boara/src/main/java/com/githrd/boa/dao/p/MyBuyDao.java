@@ -23,6 +23,8 @@ import com.githrd.boa.vo.p.MyBuyVO;
  * 				2022.05.27	-	클래스제작
  * 									담당자 ] 박소연
  *
+ *				2022.05.29	-	최종 디버깅 : 함수 수정 (getList)
+ *									담당자 ] 최이지
  */
 public class MyBuyDao {
 
@@ -56,7 +58,13 @@ public class MyBuyDao {
 				 MyBuyVO mVO = new MyBuyVO();
 				 mVO.setRowno(rs.getInt("rowno"));
 				 mVO.setBno(rs.getInt("bno"));
-				 mVO.setTitle(rs.getString("title"));
+				 
+				 // 길면 잘라주기
+				 String title = rs.getString("title");
+				 if(title.length()>15) {
+					 title = title.substring(0, 15) + "...";
+				 }
+				 mVO.setTitle(title);
 				 mVO.setBody(rs.getString("body"));
 				 mVO.setWdate(rs.getDate("wdate"));
 				 mVO.setWtime(rs.getTime("wdate"));

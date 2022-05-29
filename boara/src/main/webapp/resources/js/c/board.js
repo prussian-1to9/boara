@@ -154,7 +154,7 @@ $(document).ready(function(){
 		$('#frm').submit();
 	});
 
-// 컬렉션 수정 페이지 ---------------------------------------------------------------------
+// 게시글 수정 페이지 ---------------------------------------------------------------------
 
 	// 파일 프리뷰
 	$('#newthumb').change(function(e){
@@ -190,6 +190,7 @@ $(document).ready(function(){
 		var genre = "";
 		var chkbox = $('input:checkbox[id="genr"]:checked');
 		var ck_gnr = chkbox.length;
+		if(ck_gnr == 0) genre = 'empty';
 		for(i=0; i<ck_gnr; i++){
 			if(i == (ck_gnr - 1)){
 				genre += chkbox[i].value;
@@ -237,7 +238,9 @@ $(document).ready(function(){
 			return;
 		}
 		if(genre == tgenre){
-			$('#descr').prop('disabled', true);
+			$('#genre').prop('disabled', true);
+		}else{
+			$('#genre').val(genre);
 		}
 		if(!body){
 			alert('본문을 입력하세요.');

@@ -19,6 +19,9 @@ package com.githrd.boa.dao.c;
  * 
  * 								함수 수정(getAllColl, getCollForId)
  * 									담당자 : 최이지
+ * 
+ * 				2022.05.30	-	최종 디버깅 : 함수 수정(getAllColl, getCollForId, addCollThumb)
+ * 									담당자 : 최이지
  */
 import java.util.*;
 import java.sql.*;
@@ -171,9 +174,15 @@ public class CollDao {
 				int cno = rs.getInt("cno");
 				cvo.setCrno(rs.getInt("rno"));
 				cvo.setCno(cno);
-				cvo.setCname(rs.getString("cname"));
 				cvo.setMno(rs.getInt("mno"));
 				cvo.setId(rs.getString("id"));
+				
+				// 길면 잘라주기
+				String cname = rs.getString("cname");
+				if(cname.length() > 20) {
+					cname = cname.substring(0, 20);
+				}
+				cvo.setCname(cname);
 				
 				// nullable : descr
 				String desc = rs.getString("descr");
@@ -241,9 +250,15 @@ public class CollDao {
 				int cno = rs.getInt("cno");
 				cvo.setCrno(rs.getInt("rno"));
 				cvo.setCno(cno);
-				cvo.setCname(rs.getString("cname"));
 				cvo.setMno(rs.getInt("mno"));
 				cvo.setId(rs.getString("id"));
+				
+				// 길면 잘라주기
+				String cname = rs.getString("cname");
+				if(cname.length() > 20) {
+					cname = cname.substring(0, 20);
+				}
+				cvo.setCname(cname);
 				
 				// nullable : descr
 				String desc = rs.getString("descr");
@@ -423,7 +438,7 @@ public class CollDao {
 		// 파일 등록
 		ArrayList<FileVO> list = cvo.getList();
 		for(FileVO f : list) {
-			cnt += addFile(f, cvo.getMno());
+			cnt = addFile(f, cvo.getMno());
 		}
 		
 		return cnt;

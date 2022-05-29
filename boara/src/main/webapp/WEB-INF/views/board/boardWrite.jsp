@@ -84,7 +84,7 @@ img {
 						<input type="text" class="w3-input w3-col m7" id="price" name="price">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="genr" class="w3-col m3 w3-padding" style="text-align:right; height: 67.5px;">장르(선택, 최대 5개) : </label>
+						<label for="genr" class="w3-col m3 w3-padding" style="text-align:right; height: 227.5px;">장르(선택, 최대 5개) : </label>
 <c:forEach var="genr" items="${GLIST}">
 						<label class="w3-col m3 left mgt10"><input type="checkbox" id="genr" name="genr" value="${genr.key}"> ${genr.value}</label>
 </c:forEach>

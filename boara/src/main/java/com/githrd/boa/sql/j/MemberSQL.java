@@ -8,6 +8,10 @@ package com.githrd.boa.sql.j;
  * 			작업이력 ]
  * 				2022.05.25	-	클래스제작
  * 									담당자 ] 정준영
+ * 
+ * 				2022.05.29	-	디버깅용 상수, sql문 작성(SEL_FILES_CNT, SEL_ID_FILES)
+ * 								디버깅용 상수, sql문 수정(SEL_MEMBER_INFO)
+ * 									담당자 ] 최이지
  *
  */
 
@@ -26,6 +30,8 @@ public class MemberSQL {
 	public final int SEL_MARK_LIKE_CNT		= 1010;
 	public final int SEL_MARK_LIKE_LIST		= 1011;
 	public final int SEL_MYPOINT			= 0001;
+	public final int SEL_FILES_CNT			= 1012;
+	public final int SEL_ID_FILES			= 1013;
 	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
@@ -45,13 +51,11 @@ public class MemberSQL {
 				break;
 			case SEL_MEMBER_INFO:
 				buff.append("SELECT ");
-				buff.append("    id, m.mno mno, joindate, savename ");
+				buff.append("    id, mno, joindate ");
 				buff.append("FROM ");
-				buff.append("    member m, imgfile i ");
+				buff.append("    member m ");
 				buff.append("WHERE ");
 				buff.append("    id = ? ");
-				buff.append("    AND whereis = 'M' ");
-				buff.append("    AND m.mno = i.mno ");
 				break;
 			case SEL_BOARD_CNT:
 				buff.append("SELECT ");
@@ -202,6 +206,30 @@ public class MemberSQL {
 				buff.append("        jbno = bno) ");
 				buff.append("WHERE ");
 				buff.append("    rno between ? and ? ");
+				break;
+				
+			case SEL_FILES_CNT:
+				buff.append("SELECT ");
+				buff.append("    COUNT(*) cnt ");
+				buff.append("FROM ");
+				buff.append("    member m, imgfile f ");
+				buff.append("WHERE ");
+				buff.append("    f.mno = m.mno ");
+				buff.append("    AND m.isshow != 'N' ");
+				buff.append("    AND f.isshow = 'C' ");
+				buff.append("    AND id = ? ");
+				break;
+				
+			case SEL_ID_FILES:
+				buff.append("SELECT ");
+				buff.append("    savename ");
+				buff.append("FROM ");
+				buff.append("    member m, imgfile f ");
+				buff.append("WHERE ");
+				buff.append("    f.mno = m.mno ");
+				buff.append("    AND m.isshow != 'N' ");
+				buff.append("    AND f.isshow = 'C' ");
+				buff.append("    AND id = ? ");
 				break;
 		}
 		return buff.toString();

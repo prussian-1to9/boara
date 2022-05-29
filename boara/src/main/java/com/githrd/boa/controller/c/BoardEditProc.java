@@ -38,7 +38,6 @@ public class BoardEditProc implements BoaInter {
 		
 		// 파라미터 가져오기, sql문 생성
 		StringBuffer buff = new StringBuffer();
-//		int oricno = Integer.parseInt(multi.getParameter("tcno"));
 		int bno = Integer.parseInt(multi.getParameter("bno"));
 		String scno = multi.getParameter("cno");
 		int cno = 0;
@@ -62,7 +61,7 @@ public class BoardEditProc implements BoaInter {
 			price = Integer.parseInt(sprice);
 			buff.append(" , price = " + price +" ");
 		}
-		if(!genre.equals("")) {
+		if(genre != null) if(genre != null & !genre.equals("")) {
 			buff.append(" , genre = '" + genre +"' ");
 		}
 		

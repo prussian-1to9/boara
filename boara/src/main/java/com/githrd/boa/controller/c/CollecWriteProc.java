@@ -7,6 +7,9 @@ package com.githrd.boa.controller.c;
  * 			작업이력
  * 				2022.05.27	-	클래스 제작
  * 									담당자 : 최이지
+ * 				
+ * 				2022.05.30	-	최종 디버깅 : 명령 수정
+ * 									담당자 : 최이지
  */
 import java.io.IOException;
 import java.util.*;
@@ -50,7 +53,7 @@ public class CollecWriteProc implements BoaInter {
 		cvo.setDescr(descr);
 		cvo.setMno(cDao.getMno(sid));
 		cvo.setSgenre(genre);
-		cvo.setList(list);
+		if(!list.isEmpty()) cvo.setList(list);
 		
 		// db 작업
 		int cnt = cDao.addCollThumb(cvo);

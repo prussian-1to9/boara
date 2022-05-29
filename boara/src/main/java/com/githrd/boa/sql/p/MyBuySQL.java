@@ -5,9 +5,8 @@ package com.githrd.boa.sql.p;
  * @version	v.1.0
  * 		
  * 			작업 이력
- * 				2022/05/27	담당자 : 박소연
- * 							클래스제작
- * 				
+ * 				2022/05/27	-	클래스 제작
+ * 									담당자 : 박소연
  */
 public class MyBuySQL {
 

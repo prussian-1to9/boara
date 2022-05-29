@@ -9,8 +9,12 @@ package com.githrd.boa.dao;
  * 			작업이력 ]
  * 				2022.05.26	-	클래스제작
  * 									담당자 ] 박소연
- *
+ * 
+ *				2022.05.30	-	최종 디버깅 :	함수 수정(getCollList)
+ *												함수 추가(getThumbs)
+ *									담당자 : 최이지
  */
+import java.util.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,9 +39,38 @@ public class MainDao {
 		mSQL = new MainSQL();
 	}
 	
+	// 모든 컬렉션 썸네일 조회 함수
+	public HashMap<Integer, String> getThumbs(){
+		HashMap<Integer, String> fmap = new HashMap<Integer, String>();
+		
+		con = db.getCon();
+		stmt = db.getStmt(con);
+		String sql = mSQL.getSQL(mSQL.SEL_THUMBS);
+		
+		try {
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int cno = rs.getInt("bno");
+				String savename = rs.getString("savename");
+				fmap.put(cno, savename);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			db.close(rs);
+			db.close(stmt);
+			db.close(con);
+		}
+		
+		return fmap;
+	}
+	
 	//모든 컬렉션 조회 함수
 	public ArrayList<MainVO> getCollList(MainPageUtil page) {
 		ArrayList<MainVO> list = new ArrayList<MainVO>();
+		HashMap<Integer, String> fmap = getThumbs();	// 05.30 최이지 추가
 		
 		con = db.getCon();
 		String sql = mSQL.getSQL(mSQL.SEL_ALL_COLLECTION);
@@ -52,7 +85,9 @@ public class MainDao {
 			while(rs.next()) {
 				MainVO mVO = new MainVO();
 				mVO.setRowno(rs.getInt("rowno"));
-				mVO.setCno(rs.getInt("cno"));
+				
+				int cno = rs.getInt("cno");
+				mVO.setCno(cno);		// 05.30 최이지 수정
 				
 				String cname = rs.getString("cname");
 				if(cname.length() > 8) {
@@ -60,11 +95,12 @@ public class MainDao {
 				}
 				mVO.setCname(cname);
 				
-				String savename = rs.getString("savename");
-				if (savename == null) {
-					savename = "noimage.jpg";
+				// 파일 꺼내주기 05.30 최이지 수정
+				if(fmap.containsKey(cno)) {
+					String savename = fmap.get(cno);
+					mVO.setSavename(savename);
 				}
-				mVO.setSavename(savename);
+				
 				list.add(mVO);
 			}
 		} catch(Exception e) {

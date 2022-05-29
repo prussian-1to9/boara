@@ -24,6 +24,9 @@ public class BoardEdit implements BoaInter {
 		String view = "/board/boardEdit";
 		BoardDao bDao = new BoardDao();
 		
+		// 장르리스트 초기화
+		req.removeAttribute("GLIST");
+		
 		// 세션 검사
 		String sid = (String)req.getSession().getAttribute("SID");
 		if(sid == null) {

@@ -17,8 +17,10 @@ import com.githrd.boa.vo.j.*;
  * 
  * 			작업이력 ]
  * 				2022.05.25	-	클래스제작
- * 									담당자 ] 정준영 .
- *
+ * 									담당자 ] 정준영
+ * 
+ *				2022.05.29	-	디버깅용 명령 추가(프로필 사진 있는지)
+ *									담당자 ] 최이지
  */
 
 public class Myinfo implements BoaInter {
@@ -34,6 +36,13 @@ public class Myinfo implements BoaInter {
 		}
 		MemberDao mDao = new MemberDao();
 		MemberVO mVO = mDao.getMemberInfo(sid);
+		
+		// 프로필 사진 있는지 검사
+		int cnt = mDao.ifHasFiles(sid);
+		if(cnt != 0) {
+			String avt = mDao.getFiles(sid);
+			mVO.setAvt(avt);
+		}
 		int mno = mVO.getMno();
 		mVO.setPoint(mDao.getMyPoint(mno));
 		int bcnt = mDao.getBoardCnt(mno);

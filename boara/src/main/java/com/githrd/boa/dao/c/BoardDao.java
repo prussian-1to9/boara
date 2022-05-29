@@ -13,6 +13,8 @@ package com.githrd.boa.dao.c;
  * 
  * 				2022.05.28	-	함수 추가(getBrdFiles, bnoInfo, editBrd)
  * 									담당자 : 최이지
+ * 
+ * 				2022.05.29	-	최종 디버깅 : 함수 수정 (getCollPosts)
  */
 import java.util.*;
 import java.sql.*;
@@ -122,8 +124,10 @@ public class BoardDao {
 			
 			bvo.setCno(rs.getInt("cno"));
 			bvo.setBno(rs.getInt("bno"));
-			bvo.setTitle(rs.getString("title").replaceAll("\\r\\n", "<br>"));
-			bvo.setBody(rs.getString("body").replaceAll("\\r\\n", "<br>"));
+			String title = rs.getString("title");
+			bvo.setTitle(title.replaceAll("\r\n", "<br>").replaceAll("\\r\\n", "<br>"));
+			String body = rs.getString("body");
+			bvo.setBody(body.replaceAll("\\r\\n", "<br>"));
 			bvo.setWdate(rs.getDate("wdate"));
 			bvo.setWtime(rs.getTime("wdate"));
 			bvo.setSdate();
@@ -220,9 +224,16 @@ public class BoardDao {
 				
 				int bno = rs.getInt("bno");
 				bvo.setBno(bno);
-				bvo.setTitle(rs.getString("title"));
+				
 				bvo.setIsshow(rs.getString("isshow"));
 				bvo.setPrice(rs.getInt("price"));
+
+				// 타이틀 길면 잘라주기
+				String title = rs.getString("title");
+				if(title.length() > 20) {
+					title = title.substring(0, 20) + "...";
+				}
+				bvo.setTitle(title);
 				
 				// 미리보기 처리 : body
 				String body = rs.getString("body").replace("\\r\\n", " ");
@@ -566,10 +577,11 @@ public class BoardDao {
 		
 		con = db.getCon();
 		String sql = bSQL.getSQL(bSQL.EDIT_BRD);
+		sql = sql.replace("###", psql);
 		pstmt = db.getPstmt(con, sql);
 		
 		try {
-			pstmt.setInt(2, bno);
+			pstmt.setInt(1, bno);
 			
 			cnt = pstmt.executeUpdate();
 			

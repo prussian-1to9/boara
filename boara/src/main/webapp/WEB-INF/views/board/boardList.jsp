@@ -107,7 +107,9 @@ img {
 						<div class="genre w3-round w3-left">${genr}</div>
 		</c:forEach>
 	</c:if>
+	<c:if test="${data.price eq 0}">
 					<h4 style="clear: left; padding-top:20px;" class="w3-left-align">${data.body}</h4>
+	</c:if>
 				</div>
 				
 					<div class="w3-col m2" id="${data.bno}">

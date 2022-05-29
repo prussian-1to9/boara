@@ -24,6 +24,9 @@ public class CollecEdit implements BoaInter {
 		String view = "/collection/collecEdit";
 		CollDao cDao = new CollDao();
 		
+		// 장르리스트 초기화
+		req.removeAttribute("GLIST");
+		
 		// 세션 검사
 		String sid = (String)req.getSession().getAttribute("SID");
 		if(sid == null) {

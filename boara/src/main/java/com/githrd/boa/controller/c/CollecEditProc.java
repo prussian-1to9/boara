@@ -41,12 +41,11 @@ public class CollecEditProc implements BoaInter {
 		String cname = multi.getParameter("cname");
 		String descr = multi.getParameter("descr");
 		String genre = multi.getParameter("genre");
-		System.out.println(genre);
 		
 		if(cname != null) {
 			buff.append(" , cname = '" + cname +"' ");
 		}
-		if(!genre.equals("")) {
+		if(genre != null) if(!genre.equals("")) {
 			buff.append(" , genre = '" + genre +"' ");
 		}
 		if(descr != null) {
@@ -65,7 +64,7 @@ public class CollecEditProc implements BoaInter {
 			psql = psql.substring(3);
 			
 			// psql이 존재하는경우에만 실행
-			// 컬렉션 관련 변경사항 질의명령
+			// 게시글 관련 변경사항 질의명령
 			cnt = cDao.editColl(cno, psql);
 			if(cnt != 1) {
 				req.setAttribute("isRedirect", true);
