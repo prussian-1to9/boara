@@ -38,11 +38,10 @@ public class Myinfo implements BoaInter {
 		MemberVO mVO = mDao.getMemberInfo(sid);
 		
 		// 프로필 사진 있는지 검사
-		int cnt = mDao.ifHasFiles(sid);
-		if(cnt != 0) {
-			String avt = mDao.getFiles(sid);
-			mVO.setAvt(avt);
-		}
+		/*
+		 * int cnt = mDao.ifHasFiles(sid); if(cnt != 0) { String avt =
+		 * mDao.getFiles(sid); mVO.setAvt(avt); }
+		 */
 		int mno = mVO.getMno();
 		mVO.setPoint(mDao.getMyPoint(mno));
 		int bcnt = mDao.getBoardCnt(mno);

@@ -14,7 +14,7 @@ public class MailConfirm implements BoaInter {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("isredirect", true);
-		String view="/member/join.boa";//인증실패 시 join페이지로 리다이렉트
+		String view="/member/join";//인증실패 시 join페이지로 리다이렉트
 		
 		String mailCode = req.getParameter("code");//인증메일의 code파라미터값추출
 		String mailId = req.getParameter("id");//인증메일의 id파라미터값추출

@@ -8,10 +8,6 @@ package com.githrd.boa.sql.j;
  * 			작업이력 ]
  * 				2022.05.25	-	클래스제작
  * 									담당자 ] 정준영
- * 
- * 				2022.05.29	-	디버깅용 상수, sql문 작성(SEL_FILES_CNT, SEL_ID_FILES)
- * 								디버깅용 상수, sql문 수정(SEL_MEMBER_INFO)
- * 									담당자 ] 최이지
  *
  */
 
@@ -50,13 +46,15 @@ public class MemberSQL {
 				buff.append("    mpno = pno ");
 				break;
 			case SEL_MEMBER_INFO:
-				buff.append("SELECT ");
-				buff.append("    id, mno, joindate ");
-				buff.append("FROM ");
-				buff.append("    member m ");
-				buff.append("WHERE ");
-				buff.append("    id = ? ");
-				break;
+	            buff.append("SELECT ");
+	            buff.append("    id, m.mno mno, joindate, savename ");
+	            buff.append("FROM ");
+	            buff.append("    member m, imgfile i ");
+	            buff.append("WHERE ");
+	            buff.append("    id = ? ");
+	            buff.append("    AND whereis = 'M' ");
+	            buff.append("    AND m.mno = i.mno ");
+	            break;
 			case SEL_BOARD_CNT:
 				buff.append("SELECT ");
 				buff.append("    count(*) cnt ");

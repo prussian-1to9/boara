@@ -286,6 +286,7 @@ public class CollDao {
 					FileVO fvo = fmap.get(cno);
 					ArrayList<FileVO> flist = new ArrayList<FileVO>();
 					flist.add(fvo);
+					System.out.println("savename : " + fvo.getSavename());
 					cvo.setList(flist);
 				}
 				

@@ -176,7 +176,7 @@ public class CollSQL{
 			buff.append("VALUES( ");
 			buff.append("    (SELECT NVL(MAX(ino)+1, 100001) FROM imgfile), ");
 			buff.append("    ? , ");
-			buff.append("    (SELECT NVL(MAX(cno)+1, 100001) FROM collection), ");
+			buff.append("    (SELECT NVL(MAX(cno), 100001) FROM collection), ");
 			buff.append("    ?, ?, ?, 'C', 'C' ");
 			buff.append(") ");
 			break;

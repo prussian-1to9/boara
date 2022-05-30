@@ -188,7 +188,7 @@ public class BoardSQL {
 			buff.append("VALUES( ");
 			buff.append("    (SELECT NVL(MAX(ino)+1, 100001) FROM imgfile), ");
 			buff.append("    ? , ");
-			buff.append("    (SELECT NVL(MAX(bno)+1, 100001) FROM board), ");
+			buff.append("    (SELECT NVL(MAX(bno), 100001) FROM board), ");
 			buff.append("    ?, ?, ?, 'C', 'P' ");
 			buff.append(") ");
 			break;

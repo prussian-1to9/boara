@@ -55,6 +55,7 @@ public class MemberDao {
 			mVO.setId(rs.getString("id"));
 			mVO.setMno(rs.getInt("mno"));
 			mVO.setJdate(rs.getDate("joindate"));
+			mVO.setAvt(rs.getString("savename"));
 			mVO.setSdate();
 			
 			
