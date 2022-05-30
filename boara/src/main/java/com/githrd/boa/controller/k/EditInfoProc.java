@@ -11,6 +11,7 @@ package com.githrd.boa.controller.k;
  *
  */
 import java.io.IOException;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -39,9 +40,12 @@ public class EditInfoProc implements BoaInter {
 		String pw = multi.getParameter("pw");
 		String mail = multi.getParameter("mail");
 		String tel = multi.getParameter("tel");
-		
-		FileVO fVO = fUtil.getList().get(0); 
-		fVO.setId(id);
+		FileVO fVO = new FileVO();
+		ArrayList<FileVO> flist = fUtil.getList();
+		for(int i = 0; i < flist.size(); i++) {
+			fVO = flist.get(i);
+			fVO.setId(id);
+		}
 		
 		StringBuffer buff = new StringBuffer(" ");
 		if(pw != null) {
@@ -64,8 +68,8 @@ public class EditInfoProc implements BoaInter {
 				view = "/boara/member/editInfo.boa";
 			}
 		}
-		
 		mDao.addImgInfo(fVO);
+		
 		
 		return view;
 

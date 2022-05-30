@@ -469,7 +469,7 @@ public class BoardDao {
 		// 파일 등록
 		ArrayList<FileVO> list = bvo.getList();
 		for(FileVO f : list) {
-			cnt += addFile(f, bvo.getMno());
+			cnt = addFile(f, bvo.getMno());
 		}
 		
 		return cnt;

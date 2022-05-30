@@ -145,7 +145,7 @@ public class MemberDao {
 				FileVO fVO = new FileVO();
 				fVO.setFno(rs.getInt("ino"));
 				fVO.setSavename(rs.getString("savename"));
-				
+				System.out.println(fVO.getSavename());
 				list.add(fVO);
 			}
 		} catch (Exception e) {
