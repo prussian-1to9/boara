@@ -32,7 +32,7 @@ public class Myinfo implements BoaInter {
 		String view = "/member/myinfo";
 		if(sid == null) {
 			req.setAttribute("isRirect", true);
-			return view = "/member/join.boa";
+			return view = "/member/login.boa";
 		}
 		MemberDao mDao = new MemberDao();
 		MemberVO mVO = mDao.getMemberInfo(sid);

@@ -31,7 +31,7 @@ public class Mylog implements BoaInter {
 		String view = "/member/mylog";
 		if(sid == null) {
 			req.setAttribute("isRirect", true);
-			return view = "/member/join.boa";
+			return view = "/member/login.boa";
 		}
 		
 		int nowPage = 1;
@@ -42,7 +42,7 @@ public class Mylog implements BoaInter {
 		MemberDao mDao = new MemberDao();
 		MemberVO mVO = mDao.getMemberInfo(sid);
 		int mno = mVO.getMno();
-		mVO.setPoint(mno);
+		mVO.setPoint(mDao.getMyPoint(mno));
 		int bcnt = mDao.getBoardCnt(mno);
 		int rcnt = mDao.getReplyCnt(mno);
 		int cnt = 0;

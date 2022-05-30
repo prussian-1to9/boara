@@ -89,6 +89,9 @@ public class MemberDao {
 		
 		return point;
 	}
+	
+	
+	
 	public int getMno(String id) {
 		int smno = 0;
 		con = db.getCon();
@@ -214,7 +217,6 @@ public class MemberDao {
 	}
 	
 	public ArrayList<MemberVO> getBoardList(PageUtil page, int mno){
-		System.out.println("mno : " + mno);
 		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
 		
 		con = db.getCon();

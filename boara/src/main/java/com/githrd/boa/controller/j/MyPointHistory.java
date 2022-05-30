@@ -32,7 +32,7 @@ public class MyPointHistory implements BoaInter {
 	
 		if(sid == null) {
 			req.setAttribute("isRirect", true);
-			return view = "/member/join.boa";
+			return view = "/member/login.boa";
 		}
 	
 		int nowPage = 1;
@@ -49,7 +49,6 @@ public class MyPointHistory implements BoaInter {
 		ArrayList<MemberVO> list = mDao.getPointHistory(page, mno);
 		mVO.setPoint(mDao.getMyPoint(mno));
 		int rcnt = mDao.getReplyCnt(mno);
-																System.out.println(mVO);
 		mVO.setBcnt(bcnt);
 		mVO.setRcnt(rcnt);
 		
