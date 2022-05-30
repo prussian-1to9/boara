@@ -92,13 +92,14 @@ img {
 					<div class="w3-col w3-margin-bottom">
 						<label for="genr" class="w3-col m3 w3-padding" style="text-align:right; height: 227.5px;">장르(선택, 최대 5개) : </label>
 <c:if test="${not empty PINFO.genre}">
-	<c:forEach var="ckgnr" items="${PINFO.genre}" var="genr" items="${GLIST}">
-		<c:if test="${genr.value eq ckgnr}">
-							<label class="w3-col m3 left"><input type="checkbox" id="genr" name="genr" value="${genr.key}" checked> ${genr.value}</label>
-		</c:if>
-		<c:if test="${genr.value ne ckgnr}">
-							<label class="w3-col m3 left"><input type="checkbox" id="genr" name="genr" value="${genr.key}"> ${genr.value}</label>
-		</c:if>
+	<c:forEach var="genr" items="${GLIST}">
+							<label class="w3-col m3 left"><input type="checkbox" id="genr" name="genr" value="${genr.key}"
+		<c:forEach var="ckdgnr" items="${PINFO.genre}">
+			<c:if test="${genr.value eq ckgnr}">
+							checked
+			</c:if>
+		</c:forEach>
+							> ${genr.value}</label>
 	</c:forEach>
 </c:if>
 <c:if test="${empty PINFO.genre}">
