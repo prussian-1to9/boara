@@ -96,11 +96,11 @@ img {
 		</c:if>
 				</div>
 				<div class="colldetail w3-margin-left w3-col m7 pbox" id="${data.bno}">
-					<div class="w3-padding w3-left w3-col" style="height:100px;" id="${data.bno}">
+					<div class="w3-padding w3-left w3-col h100" id="${data.bno}">
 	<c:if test="${data.isshow eq 'A'}">
 						<div class="noti w3-round w3-left">공지</div>
 	</c:if>
-			 			<h1 class="w3-left inline" style="marign-top:30px;">${data.title}</h1>
+			 			<h1 class="w3-left inline mgt30">${data.title}</h1>
 					</div>
 	<c:if test="${not empty data.genre}">
 		<c:forEach var="genr" items="${data.genre}">
@@ -108,7 +108,7 @@ img {
 		</c:forEach>
 	</c:if>
 	<c:if test="${data.price eq 0}">
-					<h4 style="clear: left; padding-top:20px;" class="w3-left-align">${data.body}</h4>
+					<h4 class="w3-left-align c-left pdt20">${data.body}</h4>
 	</c:if>
 				</div>
 				

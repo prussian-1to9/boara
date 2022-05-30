@@ -78,11 +78,11 @@ img {
 						<img class="thumb" src="/boara/resources/img/noimage.jpg">
 					</div>
 		</c:if>
-					<h4 style="display:inline-block; margin:0px;">${data.id}</h4>
+					<h4 class="inline nomg">${data.id}</h4>
 				</div>
 				<div class="colldetail w3-margin-left w3-col m7 cbox" id="${data.cno}">
-					<div class="w3-padding w3-left w3-col" style="height:100px;" id="${data.cno}">
-			 			<h1 class="w3-left" style="display:inline-block; marign-top:30px;">${data.cname}</h1>
+					<div class="w3-padding w3-left w3-col h100" id="${data.cno}">
+			 			<h1 class="w3-left inline mgt30">${data.cname}</h1>
 					</div>
 			<c:if test="${not empty data.genre}">
 				<c:forEach var="genr" items="${data.genre}">
@@ -90,7 +90,7 @@ img {
 				</c:forEach>
 			</c:if>
 			<c:if test="${not empty data.descr}">
-					<h4 style="clear: left; padding-top:20px;" class="w3-left-align">${data.descr}</h4>
+					<h4 class="w3-left-align c-left pdt20">${data.descr}</h4>
 			</c:if>
 				</div>
 				<div class="w3-col m2" id="${data.cno}">

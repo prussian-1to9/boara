@@ -285,7 +285,7 @@ public class ReboardDao {
 			 pstmt.setInt(3, dcode);
 			 pstmt.setInt(4, mno);
 			 pstmt.setInt(5, gnp);
-			 cnt = pstmt.executeUpdate();
+			 cnt = pstmt.executeUpdate();	// 시연시 오류 발생
 		 } catch(Exception e) {
 			 e.printStackTrace();
 		 } finally {

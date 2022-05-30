@@ -57,26 +57,26 @@ img {
 				<form method="POST" name="frm" id="frm" class="w3-center" encType="multipart/form-data"
 					action="/boara/collection/collecWriteProc.boa">
 					<div class="w3-col w3-margin-bottom w3-margin-top">
-						<label for="cname" class="w3-col m3 w3-padding" style="text-align:right">컬렉션 이름 : </label>
+						<label for="cname" class="w3-col m3 w3-padding right">컬렉션 이름 : </label>
 						<input type="text" class="w3-input w3-col m7" id="cname" name="cname">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="genr" class="w3-col m3 w3-padding" style="text-align:right; height: 227.5px;">장르(선택, 최대 5개) : </label>
+						<label for="genr" class="w3-col m3 w3-padding right genrcolumn">장르(선택, 최대 5개) : </label>
 <c:forEach var="genr" items="${GLIST}">
 						<label class="w3-col m3 left mgt10"><input type="checkbox" id="genr" name="genr" value="${genr.key}"> ${genr.value}</label>
 </c:forEach>
 						<input type="hidden" name="genre" id="genre">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="descr" class="w3-col m3 w3-padding" style="text-align:right">컬렉션 설명(선택) : </label>
+						<label for="descr" class="w3-col m3 w3-padding right">컬렉션 설명(선택) : </label>
 						<input type="text" class="w3-input w3-col m7" id="descr" name="descr">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="thumb" class="w3-col m3 w3-padding" style="text-align:right">썸네일(선택) : </label>
+						<label for="thumb" class="w3-col m3 w3-padding right" >썸네일(선택) : </label>
 						<input type="file" class="w3-input w3-col m7" id="thumb" name="thumb">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label class="w3-col m3 w3-padding" style="text-align:right">썸네일 미리보기 : </label>
+						<label class="w3-col m3 w3-padding right">썸네일 미리보기 : </label>
 						<div class="w3-col m7 w3-center">
 							<div class="thbox">
 								<img class="thumb" id="preview" src="/boara/resources/img/noimage.jpg">

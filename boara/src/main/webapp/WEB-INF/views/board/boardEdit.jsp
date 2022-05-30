@@ -93,34 +93,34 @@ img {
 						<label for="genr" class="w3-col m3 w3-padding" style="text-align:right; height: 227.5px;">장르(선택, 최대 5개) : </label>
 <c:if test="${not empty PINFO.genre}">
 	<c:forEach var="genr" items="${GLIST}">
-							<label class="w3-col m3 left"><input type="checkbox" id="genr" name="genr" value="${genr.key}"
+							<label class="w3-col m3 left mgt10"><input type="checkbox" id="genr" name="genr" value="${genr.key}"
 		<c:forEach var="ckdgnr" items="${PINFO.genre}">
-			<c:if test="${genr.value eq ckgnr}">
-							checked
+			<c:if test="${genr.value eq ckdgnr}">
+								checked
 			</c:if>
 		</c:forEach>
-							> ${genr.value}</label>
+								> ${genr.value}</label>
 	</c:forEach>
 </c:if>
 <c:if test="${empty PINFO.genre}">
 	<c:forEach var="genr" items="${GLIST}">
-							<label class="w3-col m3 left"><input type="checkbox" id="genr" name="genr" value="${genr.key}"> ${genr.value}</label>
+							<label class="w3-col m3 left mgt10"><input type="checkbox" id="genr" name="genr" value="${genr.key}"> ${genr.value}</label>
 	</c:forEach>
 </c:if>
 						<input type="hidden" name="genre" id="genre">
 		
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="descr" class="w3-col m3 w3-padding" style="text-align:right">내용 : </label>
-						<textarea class="w3-col m7 w3-input w3-padding w3-border w3-margin-bottom" 
-							id="body" name="body" rows="20" style="resize: none;">${PINFO.body}</textarea>
+						<label for="descr" class="w3-col m3 w3-padding right">내용 : </label>
+						<textarea class="w3-col m7 w3-input w3-padding w3-border w3-margin-bottom norsize" 
+							id="body" name="body" rows="20">${PINFO.body}</textarea>
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="thumb" class="w3-col m3 w3-padding" style="text-align:right">새 썸네일 : </label>
+						<label for="thumb" class="w3-col m3 w3-padding right">새 썸네일 : </label>
 						<input type="file" class="w3-input w3-col m7" id="newthumb" name="newthumb">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label class="w3-col m3 w3-padding" style="text-align:right">새 썸네일 미리보기 : </label>
+						<label class="w3-col m3 w3-padding right">새 썸네일 미리보기 : </label>
 						<div class="w3-col m7 w3-center">
 							<div class="thbox">
 								<img class="thumb" id="preview" src="/boara/resources/img/noimage.jpg">
@@ -129,7 +129,7 @@ img {
 					</div>
 <c:if test="${not empty PINFO.list}">
 					<div class="w3-col w3-margin-bottom">
-						<label class="w3-col m3 w3-padding" style="text-align:right">썸네일 히스토리중 선택 : </label>
+						<label class="w3-col m3 w3-padding right">썸네일 히스토리중 선택 : </label>
 						<div class="w3-col m7 w3-center w3-border w3-white w3-padding">
 	<c:forEach var="img" items="${PINFO.list}">
 							<%-- 이미지 하나 --%>

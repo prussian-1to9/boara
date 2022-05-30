@@ -57,14 +57,14 @@ img {
 				<form method="POST" name="frm" id="frm" class="w3-center" encType="multipart/form-data"
 					action="/boara/collection/collecEditProc.boa">
 					<div class="w3-col w3-margin-bottom w3-margin-top">
-						<label for="cname" class="w3-col m3 w3-padding" style="text-align:right">컬렉션 이름 : </label>
+						<label for="cname" class="w3-col m3 w3-padding right">컬렉션 이름 : </label>
 						<input type="text" class="w3-input w3-col m7" id="cname" name="cname" value="${CINFO.cname}">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="genr" class="w3-col m3 w3-padding" style="text-align:right; height: 157.5px;">장르(선택, 최대 5개) : </label>
+						<label for="genr" class="w3-col m3 w3-padding right genrcolumn">장르(선택, 최대 5개) : </label>
 <c:if test="${not empty CINFO.genre}">
 	<c:forEach var="genr" items="${GLIST}">
-							<label class="w3-col m3 left"><input type="checkbox" id="genr" name="genr" value="${genr.key}"
+							<label class="w3-col m3 left mgt10"><input type="checkbox" id="genr" name="genr" value="${genr.key}"
 		<c:forEach var="ckdgnr" items="${CINFO.genre}">
 			<c:if test="${genr.value eq ckdgnr}">
 								checked
@@ -81,15 +81,15 @@ img {
 						<input type="hidden" name="genre" id="genre">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="descr" class="w3-col m3 w3-padding" style="text-align:right">컬렉션 설명(선택) : </label>
+						<label for="descr" class="w3-col m3 w3-padding right">컬렉션 설명(선택) : </label>
 						<input type="text" class="w3-input w3-col m7" id="descr" name="descr" value="${CINFO.descr}">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="newthumb" class="w3-col m3 w3-padding" style="text-align:right">썸네일 변경 : </label>
+						<label for="newthumb" class="w3-col m3 w3-padding right">썸네일 변경 : </label>
 						<input type="file" class="w3-input w3-col m7" id="newthumb" name="newthumb">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label class="w3-col m3 w3-padding" style="text-align:right">새 썸네일 미리보기 : </label>
+						<label class="w3-col m3 w3-padding right">새 썸네일 미리보기 : </label>
 						<div class="w3-col m7 w3-center">
 							<div class="thbox">
 								<img class="thumb" id="preview" src="/boara/resources/img/noimage.jpg">
@@ -98,7 +98,7 @@ img {
 					</div>
 <c:if test="${not empty CINFO.list}">
 					<div class="w3-col w3-margin-bottom">
-						<label class="w3-col m3 w3-padding" style="text-align:right">썸네일 히스토리중 선택 : </label>
+						<label class="w3-col m3 w3-padding right">썸네일 히스토리중 선택 : </label>
 						<div class="w3-col m7 w3-center w3-border w3-white w3-padding">
 	<c:forEach var="img" items="${CINFO.list}">
 							<%-- 이미지 하나 --%>

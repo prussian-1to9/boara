@@ -49,16 +49,31 @@
 .w900{
 	width: 900px;
 }
+.h100{
+	height: 100px;
+}
+.genrcolumn{
+	height: 227.5px;
+}
 
 /* color */
 .boablue{
 	background-color:#20459E;
 	color:white;
 }
+.gray{
+	color:gray;
+}
 
 /* align */
 .left{
 	text-align:left;
+}
+.c-left{
+	clear:left;
+}
+.right{
+	text-align:right;
 }
 
 /* 이미지 */
@@ -86,14 +101,37 @@
 .blk{
 	display:block;
 }
+.norsize{
+	resize:none;
+}
+.chgline{
+	word-wrap: break-word;
+}
 
 /* margin */
 .mgt10{
 	margin-top:10px;
+}
+.mgt20{
+	margin-top:20px;
+}
+.mgt30{
+	margin-top:30cp;
 }
 .mgl10{
 	margin-left:10px;
 }
 .nomg{
 	margin:0px;
+}
+
+/* padding */
+.pdt20{
+	padding-top: 20px;
+}
+.pdb5{
+	padding-bottom:5px;
+}
+.pdl10{
+	padding-left: 10px;
 }

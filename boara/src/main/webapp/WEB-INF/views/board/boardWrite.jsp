@@ -80,27 +80,27 @@ img {
 						</datalist>
 					</div>
 					<div class="w3-col w3-margin-bottom w3-margin-top">
-						<label for="price" class="w3-col m3 w3-padding" style="text-align:right">가격 : </label>
+						<label for="price" class="w3-col m3 w3-padding right">가격 : </label>
 						<input type="text" class="w3-input w3-col m7" id="price" name="price">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="genr" class="w3-col m3 w3-padding" style="text-align:right; height: 227.5px;">장르(선택, 최대 5개) : </label>
+						<label for="genr" class="w3-col m3 w3-padding right genrcolumn">장르(선택, 최대 5개) : </label>
 <c:forEach var="genr" items="${GLIST}">
 						<label class="w3-col m3 left mgt10"><input type="checkbox" id="genr" name="genr" value="${genr.key}"> ${genr.value}</label>
 </c:forEach>
 						<input type="hidden" name="genre" id="genre">
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="descr" class="w3-col m3 w3-padding" style="text-align:right">내용 : </label>
-						<textarea class="w3-col m7 w3-input w3-padding w3-border w3-margin-bottom" 
-							id="body" name="body" rows="20" style="resize: none;"></textarea>
+						<label for="descr" class="w3-col m3 w3-padding right">내용 : </label>
+						<textarea class="w3-col m7 w3-input w3-padding w3-border w3-margin-bottom norsize" 
+							id="body" name="body" rows="20"></textarea>
 					</div>
 					<div class="w3-col w3-margin-bottom">
-						<label for="thumb" class="w3-col m3 w3-padding" style="text-align:right">썸네일(선택) : </label>
+						<label for="thumb" class="w3-col m3 w3-padding right">썸네일(선택) : </label>
 						<input type="file" class="w3-input w3-col m7" id="thumb" name="thumb">
 					</div>
 					<div class="w3-col w3-margin-bottom" id="previewbox">
-						<label class="w3-col m3 w3-padding" style="text-align:right">썸네일 미리보기 : </label>
+						<label class="w3-col m3 w3-padding right">썸네일 미리보기 : </label>
 						<div class="w3-col m7 w3-center">
 							<div class="thbox">
 								<img class="thumb" id="preview" src="/boara/resources/img/noimage.jpg">

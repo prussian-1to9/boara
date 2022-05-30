@@ -62,16 +62,16 @@ img {
 <c:if test="${not empty POST}">
 			<div class="w3-border-bottom">
 				<div>
-					<h6 style="color:gray; text-align:left;">[${POST.bno}]</h6>
+					<h6 class="gray left">[${POST.bno}]</h6>
 				</div>
 				<div class="w3-col">
 					<div class="w3-col m1">
 	<c:if test="${POST.isshow eq 'A'}">
-						<div class="noti w3-round w3-left" style="margin-top:20px; margin-left: 10px;">공지</div>
+						<div class="noti w3-round w3-left mgt20 mgl10">공지</div>
 	</c:if>
 					</div>
 					<div class="w3-col m10 w3-margin-left">
-						<h1 class="w3-left" style="text-align:left; display:inline-block; marign-top:30px; word-wrap:break-word;">${POST.title}</h1>
+						<h1 class="w3-left left inline mgt30 chgline">${POST.title}</h1>
 					</div>
 				</div>
 	<c:if test="${not empty POST.genre}">
@@ -82,14 +82,14 @@ img {
 				</div>
 	</c:if>
 	<c:if test="${POST.price ne 0}">
-				<h4 style="color:gray; padding-left:10px; text-align:left;">${POST.id} ${POST.price}P</h4>
+				<h4 class="gray left pdl10">${POST.id} ${POST.price}P</h4>
 	</c:if>
 	<c:if test="${POST.price eq 0}">
-				<h4 style="color:gray; padding-left:10px; text-align:left;">${POST.id}</h4>
+				<h4 class="gray left pdl10">${POST.id}</h4>
 	</c:if>
-				<h6 style="color:gray; text-align:right;">${POST.sdate} 조회수 : ${POST.clicks}</h6>
+				<h6 class="gray right">${POST.sdate} 조회수 : ${POST.clicks}</h6>
 			</div>
-			<p style="text-align:left; word-wrap:break-word; padding-bottom:5px;" class="w3-border-bottom">${POST.body}</p>
+			<p class="left chgline pdb5" class="w3-border-bottom">${POST.body}</p>
 </c:if>
 
 			<div class="left">
