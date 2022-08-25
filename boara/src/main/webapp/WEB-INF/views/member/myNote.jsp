@@ -1,35 +1,10 @@
-<!-- 정준영 -->
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>마이페이지 로그페이지</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="/boara/resources/css/w3.css">
-<link rel="stylesheet" type="text/css" href="/boara/resources/css/user.css">
-<script type="text/javascript" src="/boara/resources/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/boara/resources/js/j/member.js"></script>
-<script type="text/javascript" src="/boara/resources/js/main.js"></script>
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
-dt {
-margin: 5px;
-font-size : 20pt;
-}
-dd:hover{
-	color:#000!important;background-color:#ccc!important;
-	cursor: pointer;
-}
-dd {
-margin: 5px;
-font-size : 15pt;
-font-weight: lighter ;
-}
-</style>
+<title>나의 쪽지함</title>
 </head>
 <body>
 <!-- #############################여기서부터 아래 표시한 곳까지 모든 페이지에서 동일. -->

@@ -10,6 +10,7 @@ $(document).ready(function(){
 		$('#frm').attr('action', '/boara/collection/collecList.boa?cid=' + sid);
 		$('#frm').submit();
 	});
+	
 	//페이지 버튼 클릭 이벤 처리
 	$('.pbtn').click(function(){
 		var pno = $(this).attr('id');//this : 클릭된 태그, 아이디값(페이지 번호)
@@ -19,13 +20,13 @@ $(document).ready(function(){
 		$('#frm').submit();
 	});
 	
-	//새댓글작성 버튼 이벤트
+	/*//새댓글작성 버튼 이벤트
 	$('#wwwbtn').click(function(){
 		$('#frm').attr('action', '/boara/reboard/reboardWrite.boa');	
 		$('#frm').submit();
-	});
+	});*/
 	
-	//댓글의 수정/삭제/대댓글 버튼 클릭 이벤트
+	/*//댓글의 수정/삭제/대댓글 버튼 클릭 이벤트
 	$('.listbutton').click(function(){
 		var btxt = $(this).html();
 		
@@ -50,7 +51,7 @@ $(document).ready(function(){
 		}
 		
 		$('#frm').submit();
-	});
+	});*/
 	
 	//스포일러 댓글 클릭 시 내용 보이기
 	$('.spoiler').click(function(){
@@ -59,7 +60,7 @@ $(document).ready(function(){
 	});
 	
 	
-	// 2. 새댓글 작성 페이지 <<reboardWrite.jsp>>
+	//2. 새댓글, 댓글, 수정, 삭제 버튼 이벤트
 	//등록 버튼 클릭 이벤트
 	$('#cmtbtn').click(function(){
 		var btxt = $('#body').val();
@@ -111,4 +112,40 @@ $(document).ready(function(){
 	// 4. 대댓글 작성 페이지 <<reboardComment.jsp>>
 	//등록 버튼 이벤트()
 	// 위에 새 댓글 등록 버튼과 동일	
+	
+	
+	//================================= 새로 만들어보기!!!!
+	
+	//새댓글 작성 버튼 이벤
+	$('#newcomwrite').click(function(){
+		$('.newcomview').css('display', 'block');
+	});
+	
+	//대댓글 버튼 이벤
+	$('.listbutton').click(function(){
+		
+		var btxt = $(this).html();
+		
+		if(btxt == '삭제') {
+			$('#frm').attr('action', '/boara/reboard/reboardDel.boa');	
+		} 
+		
+		
+		if(btxt == '수정') {
+			$('#modal').css('display', 'block');
+			
+			alert('수정');		
+		
+		} else if(btxt == '댓글') {
+			//클릭한 댓글의 글번호가 대댓글의 상위댓글번호가 된다.
+			$('#modal').css('display', 'block');
+			alert('대댓글');
+			$('').css('display', 'block');
+			var suprno = $(this).parent().attr('id');
+			$('#uprno').val(suprno);
+		} else if(btxt == '새댓글작성') {			
+			$('#modal').css('display', 'block');
+		}
+
+	});
 });

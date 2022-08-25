@@ -74,11 +74,6 @@ img {
 							<input type="hidden" id="mno" name="mno" value="${DATA.mno}">
 							<textarea class="w3-col w3-padding ft12" id="body" name="body"
 										style="resize: none; height:120px;"></textarea>
-						
-						<!-- <div class="w3-col w3-margin-top" style="height: 50px;">
-							<input class="w3-col w3-padding ft12"></input>
-						</div> -->
-						
 						<div class="w3-col w3-right" id="" style="height: 15px;">
 							 <label style="float:left;"><input type="checkbox" name="spo" id="spo" value="S"> 스포일러 포함 시 체크</label>
 							<div class="w3-col w3-button w70 w3-indigo w3-right" style="padding-top:2px; width: 55px; height:20px; font-size:5pt;" id="cmtbtn">등록</div>

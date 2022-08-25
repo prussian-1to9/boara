@@ -97,7 +97,7 @@ public class ReboardSQL {
 			buff.append("    reply(rno, bno, uprno, id, mno, body, isshow) ");
 			buff.append("VALUES( ");
 			buff.append("    (SELECT NVL(MAX(rno) + 1, 100001) FROM reply), ");
-			buff.append("    ?, ?, ?, ?, ?, ? ");
+			buff.append("    ?, ?, ?, ?, ?, <ㄴ딛? ");
 			buff.append(") ");
 			break;
 		case SEL_REBOARD_INFO://댓글 수정 시 수정할 댓글 정보 조회

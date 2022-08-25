@@ -57,7 +57,7 @@ img {
         	
 		
          <!-- 컬렉션 리스트 보이는 곳 -->
-         <div style = "margin-left: 340px; margin-bottom: 60px;">
+         <div style = "margin-left: 420px; margin-bottom: 60px;">
             <h3 class="w3-padding mhot" style="float: left;">오늘의 HOT 컬렉션!</h3>
             <button class="w3-indigo w3-hover-grey mhot" style="border: none; margin-top: 18px; margin-left: 500px;">더보기</button>
          </div>

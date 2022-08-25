@@ -21,6 +21,8 @@ img {
 }
 </style>
 </head>
+<script type="text/javascript">
+</script>
 <body>
 <!-- #############################여기서부터 아래 표시한 곳까지 모든 페이지에서 동일. -->
 <!-- <script type="text/javascript" src="/boara/resources/js/main.js"></script> 모든 페이지에 복붙해주세요. -->
@@ -49,13 +51,14 @@ img {
 </c:if>   
    </header>
 <!-- #################여기까진 모든 페이지에서 동일. 복붙해주세요 -->  
+
    
-   <!-- First Grid -->
    <!-- 페이지 본문 -->
    <div class="w3-row-padding w3-padding-64 w3-container" style="height: 700px; margin: 0;">
-   		<button class="w3-center w3-indigo w3-hover-grey" id="wwwbtn" style="border: none; margin-left: 880px; margin-bottom: 20px;">새댓글작성</button>
+   		<button class="w3-center w3-indigo w3-hover-grey listbutton" id="newcomwrite" style="border: none; margin-left: 880px; margin-bottom: 20px;">새댓글작성</button>
    		<div style="width: 800px; margin: 0 auto;">
-   		
+   			
+			<!-- 댓글 리스트 보이는 곳 -->
 <c:forEach var="data" items="${LIST}">
 			<div class="w3-col w3-center" style="width: 700px; height: 160px; padding-left: ${data.step * 70}px;">
 				<div class="w3-col w3-round-large w3-card-4 w3-margin-bottom w3-padding">
@@ -123,31 +126,48 @@ img {
    		</div>
    </div>
    
-   	<!-- 댓글 삭제 메세지 출력 모달창 시작 -->
-<c:if test="${not empty MSG}">
-	<div id="modal" class="w3-modal" style="display:block;">
+   	<!-- 새댓글&대댓글 작성 메세지 출력 모달창 시작 -->
+	<div id="modal" class="w3-modal" style="display:none;">
 	    <div class="w3-modal-content mxw650 w3-animate-top w3-card-4">
 	      <header class="w3-container w3-blue"> 
 	        <span onclick="document.getElementById('modal').style.display='none'" 
 	        class="w3-button w3-display-topright">&times;</span>
-	        <h2>상상이 현실이 된다, 보아라!</h2>
+	        <h2>새 댓글 작성하기</h2>
 	      </header>
 	      <div class="w3-container w3-center">
-	        <h4>${MSG}</h4>
+				<div class="w3-col box120 pdAll10 w3-border-right" style="height: 100%;">
+					<img src="/boara/resources/upload/${DATA.savename}" class="inblock avtBox100 w3-border w3-border-grey" style="margin-top: 20px;">
+				</div>
+					<div class="w3-rest w3-padding">
+						<div class="w3-col w3-border-bottom">
+							<span style="float: left;">${SID}</span>
+						</div>
+						<form method="POST" action="" 
+											id="frm" name="frm" class="w3-col w3-margin-top">
+							<input type="hidden" id="uprno" name="uprno" value="">
+							<input type="hidden" id="bno" name="bno" value="${BNO}">
+							<input type="hidden" id="mno" name="mno" value="">
+							<textarea class="w3-col w3-padding ft12" id="body" name="body"
+										style="resize: none; height:120px;"></textarea>
+						<div class="w3-col w3-right" id="" style="height: 15px;">
+							<label style="float:left;"><input type="checkbox" name="spo" id="spo" value="S"> 스포일러 포함 시 체크</label>
+							<div class="w3-col w3-button w70 w3-indigo w3-right" style="padding-top:2px; width: 55px; height:20px; font-size:5pt;" id="cmtbtn">등록</div>
+						</div>
+						</form>	
+					</div>
+				</div>
 	      </div>
-	    </div>
  	</div>
-</c:if>
-	<!-- 댓글 삭제 메세치 출력 모달창 끝 -->
+	<!-- 메세치 출력 모달창 끝 -->
    
    <!-- 데이터 전송용 form 태그 -->
-	<form method="POST" action="/boara/reboard/reboardList.boa" id="frm" name="frm">
+	<%-- <form method="POST" action="/boara/reboard/reboardList.boa" id="frm" name="frm">
 		<input type="hidden" id="nowPage" name="nowPage" value="${PAGE.nowPage}">
 		<input type="hidden" id="rno" name="rno">
 		<input type="hidden" id="uprno" name="uprno">
 		<input type="hidden" id="bno" name="bno" value="${BNO}">
 		<input type="hidden" id="lid" name="lid">
-	</form>
+	</form> --%>
    
    <!-- Footer -->
    <div class="w3-row-padding w3-padding-64 w3-container" style="height: 200px; margin: 0;">
